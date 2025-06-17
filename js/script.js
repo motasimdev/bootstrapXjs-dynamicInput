@@ -1,16 +1,19 @@
-let inputName = document.getElementById("inputName")
-let inputDescription = document.getElementById("inputDescription")
-let allIn = document.getElementById("allIn")
-let submitBtn = document.getElementById("submitBtn")
+let inputName = document.getElementById("inputName");
+let inputDescription = document.getElementById("inputDescription");
+let allIn = document.getElementById("allIn");
+let submitBtn = document.getElementById("submitBtn");
 
 // =======================================
 
-let arr = []
+let arr = [];
 
-function display () {
-    arr.map(item=>{
-    
-    allIn.innerHTML +=  `<div class="col-lg-3">
+function display() {
+  allIn.innerHTML = "";
+  inputName.value = "";
+  inputDescription.value = "";
+
+  arr.map((item) => {
+    allIn.innerHTML += `<div class="col-lg-3">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">${item.name} </h5>
@@ -19,15 +22,14 @@ function display () {
                             <button class="btn btn-danger">Delete</button>
                         </div>
                     </div>
-                </div>`
-})
+                </div>`;
+  });
 }
 
-submitBtn.addEventListener("click", ()=>{
-    arr.push({
-        name: inputName.value,
-        description: inputDescription.value
-    })
-    display()
-})
-
+submitBtn.addEventListener("click", () => {
+  arr.push({
+    name: inputName.value,
+    description: inputDescription.value,
+  });
+  display();
+});
